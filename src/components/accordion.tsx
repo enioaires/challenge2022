@@ -25,7 +25,7 @@ const Accordion = (props: Props) => {
           <div className="bg-white-default flex items-center justify-center px-2">
             {i + 1}
           </div>
-          <div className="px-1" />
+          <div className="px-2" />
           <AccordionPrimitive.Item
             key={`header-${i}`}
             value={`item-${i + 1}`}
