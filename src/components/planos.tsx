@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "./select";
 import Button from "./shared/button";
 import EnergyIcon from "./icon/energy";
+import Toast from "./toast";
+import { optionsConsumo, optionsEstados } from "../utils/selectPlanos";
 
 type Props = {};
 
@@ -9,6 +11,7 @@ const Planos = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [plan, setPlan] = useState<string | undefined>();
   const [state, setState] = useState<string | undefined>();
+  const [show, setShow] = useState<boolean>(false);
 
   const planCallback = (plan: string | undefined) => {
     setPlan(plan);
@@ -18,43 +21,9 @@ const Planos = (props: Props) => {
     setState(state);
   };
 
-  const optionsConsumo = [
-    "100 kwh (média mensal)",
-    "150 kwh (média mensal)",
-    "200 kwh (média mensal)",
-    "250 kwh (média mensal)",
-    "300 kwh (média mensal)",
-  ];
-
-  const optionsEstados = [
-    "Acre",
-    "Alagoas",
-    "Amapá",
-    "Amazonas",
-    "Bahia",
-    "Ceara",
-    "Distrito Federal",
-    "Espírito Santo",
-    "Goiás",
-    "Maranhão",
-    "Mato Grosso",
-    "Mato Grosso do Sul",
-    "Minas Gerais",
-    "Pará",
-    "Paraiba",
-    "Paraná",
-    "Pernambuco",
-    "Piauí",
-    "Rio de Janeiro",
-    "Rio Grande do Norte",
-    "Rio Grande do Sul",
-    "Rondônia",
-    "Roraima",
-    "Santa Catarina",
-    "São Paulo",
-    "Sergipe",
-    "Tocantins",
-  ];
+  useEffect(() => {
+    plan && state && setShow(false);
+  }, [plan, state]);
   return (
     <>
       <div className="flex flex-col">
@@ -78,18 +47,16 @@ const Planos = (props: Props) => {
         />
         <div className="p-3" />
         <Button
-          button
+          button="true"
           onClick={() => {
-            plan && state
-              ? setIsOpen(!isOpen)
-              : alert("Selecione um plano e o estado onde vive.");
+            plan && state ? setIsOpen(!isOpen) : setShow(true);
           }}
         >
           Ver Planos
         </Button>
       </div>
       {isOpen && (
-        <div className="flex flex-col bg-white-default p-10 gap-6 w-full">
+        <div className="flex flex-col bg-white-default p-10 gap-6 w-96 max-w-full">
           <div>
             <h1 className="text-center text-3xl font-bold text-green-primary">
               Plano {plan?.replace("(média mensal)", "")}
@@ -153,11 +120,12 @@ const Planos = (props: Props) => {
               </div>
             </div>
           </div>
-          <Button button inverse>
+          <Button button="true" inverse="true">
             Contrate Já
           </Button>
         </div>
       )}
+      <Toast show={show} />
     </>
   );
 };

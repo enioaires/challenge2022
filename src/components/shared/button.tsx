@@ -2,8 +2,8 @@ import cx from "classnames";
 import React from "react";
 
 type Props = Omit<React.ComponentProps<"button">, "className"> & {
-  button?: boolean;
-  inverse?: boolean;
+  button?: string;
+  inverse?: string;
 };
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(
@@ -22,7 +22,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(
           ? cx(
               "inline-flex select-none items-center justify-center rounded-full px-4 py-3  font-indie text-xl font-normal border border-green-primary min-w-full max-h-12",
               "bg-white-default text-green-primary",
-              "hover:bg-white-background"
+              "hover:bg-white-default"
             )
           : cx(
               "inline-flex select-none items-center justify-between rounded-3xl px-4 py-3 text-sm font-medium border border-gray-300 min-w-full",

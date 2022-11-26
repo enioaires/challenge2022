@@ -27,9 +27,9 @@ export default function Home() {
         <div>
           <Image alt="logo" src={logo} />
           <div className="p-4" />
-          <Image alt="economia" src={economia} />
+          <Image alt="economia" src={economia} priority />
           <div className="p-8" />
-          <Button button>Como Funciona ?</Button>
+          <Button button="true">Como Funciona ?</Button>
         </div>
         <div className="w-72 flex flex-col justify-center items-center gap-10">
           <p className="font-light text-2xl text-center">

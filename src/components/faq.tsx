@@ -5,27 +5,27 @@ const Faq = () => {
   const items = [
     {
       header: "O que é energia limpa?",
-      content: "Yes!",
+      content: "Challenge 2022 - Os donos da bola!",
     },
     {
       header:
         "Qual a diferença entre tarifas de energia limpa e a energia não renovável?",
-      content: "Yes!",
+      content: "Challenge 2022 - Os donos da bola!",
     },
     {
       header:
         "Quanto tempo demora para eu receber os créditos na minha conta de luz?",
-      content: "Yes!",
+      content: "Challenge 2022 - Os donos da bola!",
     },
     {
       header:
         "Quais documentos preciso enviar para fazer parte da cooperativa?",
-      content: "Yes!",
+      content: "Challenge 2022 - Os donos da bola!",
     },
     {
       header:
         "Como faço para vender energia limpa e abastecer a minha concessionária de energia?",
-      content: "Yes!",
+      content: "Challenge 2022 - Os donos da bola!",
     },
   ];
   return (
